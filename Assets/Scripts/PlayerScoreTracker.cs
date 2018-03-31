@@ -7,9 +7,8 @@ public class PlayerScoreTracker : MonoBehaviour {
 	public static PlayerScoreTracker instance;
 
 	public Text scoreText;
-	public Text streakText;
+	public TextMesh streakText;
 	public GameObject scoreChangePrefab;
-	public GameObject scoreMultiplierPrefab;
 
 	const int baseDonutScore = 50;
 	const int scoreMultiplier = 50;
@@ -29,6 +28,7 @@ public class PlayerScoreTracker : MonoBehaviour {
 		} else {
 			instance = this;
 		}
+		streakText.text = "";
 	}
 	
 	// Update is called once per frame
@@ -45,7 +45,6 @@ public class PlayerScoreTracker : MonoBehaviour {
 		int scoreChange = baseDonutScore + (donutStreak * scoreMultiplier);
 		score += scoreChange;
 		scoreText.text = "Score: " + score;
-		streakText.text = "Streak: " + donutStreak;
 		timeSinceLastDonut = 0;
 
 		GameObject go = Instantiate(scoreChangePrefab, transform.parent, false);
@@ -53,15 +52,13 @@ public class PlayerScoreTracker : MonoBehaviour {
 		// go.transform.position += new Vector3(100, -100, 0);
 
 		if (donutStreak >= 2) {
-			GameObject go2 = Instantiate(scoreMultiplierPrefab, GameController.instance.ship.transform, false);
-			TextMesh tm = go2.GetComponentInChildren<TextMesh>();
-			tm.text = "X" + donutStreak;
-			tm.fontSize = 40 + donutStreak * 4;
+			streakText.text = "X" + donutStreak;
+			streakText.fontSize = 22 + donutStreak * 2;
 
 			// change color
 			int i = Mathf.Min(donutStreak-2, streakColors.Length-1);
-			tm.color = streakColors[i];
-			tm.fontSize = 40 + i * 5;
+			streakText.color = streakColors[i];
+			streakText.fontSize = 40 + i * 5;
 		}
 	}
 }

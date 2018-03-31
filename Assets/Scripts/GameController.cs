@@ -19,7 +19,6 @@ public class GameController : MonoBehaviour {
 	const float donutImpactDamage = 20;
 	
 	float planetHealth;
-	int donutsDestroyed;
 
 	public struct Difficulty {
 
@@ -51,7 +50,6 @@ public class GameController : MonoBehaviour {
 		}
 
 		planetHealth = maxPlanetHealth;
-		donutsDestroyed = 0;
 		UpdatePlanetHealthSlider();
 	}
 	
@@ -83,7 +81,7 @@ public class GameController : MonoBehaviour {
 		}
 		
 
-		if (planetHealth < 0)
+		if (planetHealth <= 0)
 			gameOverPanel.SetActive(true);
 	}
 

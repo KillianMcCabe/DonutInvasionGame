@@ -266,6 +266,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!102 &41461692 stripped
+TextMesh:
+  m_PrefabParentObject: {fileID: 102834523621985438, guid: 6d5a6bb12db72c447b30e37dcefb2356,
+    type: 2}
+  m_PrefabInternal: {fileID: 94131675}
 --- !u!1001 &94131675
 Prefab:
   m_ObjectHideFlags: 0
@@ -305,38 +310,29 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1754256895456882, guid: 6d5a6bb12db72c447b30e37dcefb2356, type: 2}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754256895456882, guid: 6d5a6bb12db72c447b30e37dcefb2356, type: 2}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 114431696850264764, guid: 6d5a6bb12db72c447b30e37dcefb2356,
+    - target: {fileID: 114321010301827962, guid: 6d5a6bb12db72c447b30e37dcefb2356,
         type: 2}
-      propertyPath: warningPanel
+      propertyPath: planet
       value: 
-      objectReference: {fileID: 264802631}
+      objectReference: {fileID: 734276730}
     - target: {fileID: 114583406265260660, guid: 6d5a6bb12db72c447b30e37dcefb2356,
         type: 2}
       propertyPath: planetCollidor
       value: 
       objectReference: {fileID: 734276732}
-    m_RemovedComponents:
-    - {fileID: 92906738533622054, guid: 6d5a6bb12db72c447b30e37dcefb2356, type: 2}
+    - target: {fileID: 114431696850264764, guid: 6d5a6bb12db72c447b30e37dcefb2356,
+        type: 2}
+      propertyPath: warningPanel
+      value: 
+      objectReference: {fileID: 264802631}
+    - target: {fileID: 114883863270155598, guid: 6d5a6bb12db72c447b30e37dcefb2356,
+        type: 2}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 734276730}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d5a6bb12db72c447b30e37dcefb2356, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &94131676 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4613259896117742, guid: 6d5a6bb12db72c447b30e37dcefb2356,
-    type: 2}
-  m_PrefabInternal: {fileID: 94131675}
---- !u!4 &94131684 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4327566890586586, guid: 6d5a6bb12db72c447b30e37dcefb2356,
-    type: 2}
-  m_PrefabInternal: {fileID: 94131675}
 --- !u!1 &152544582
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,34 +693,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 297419848}
---- !u!1 &316353980
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 316353981}
-  m_Layer: 0
-  m_Name: ShipCentreT
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &316353981
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 316353980}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.48}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 94131684}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &448033449
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,93 +889,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 528584749}
---- !u!1 &705120925
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 705120926}
-  - component: {fileID: 705120930}
-  - component: {fileID: 705120929}
-  - component: {fileID: 705120927}
-  m_Layer: 0
-  m_Name: AlternativeCamera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &705120926
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 705120925}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 94131676}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &705120927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 705120925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c869d0be8dd3f498c98a0f0ab1a0cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planet: {fileID: 734276730}
-  target: {fileID: 316353980}
---- !u!124 &705120929
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 705120925}
-  m_Enabled: 1
---- !u!20 &705120930
-Camera:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 705120925}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 100
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: e685f7ab54dc6fd4a95430f04e8d059e, type: 2}
-  m_TargetDisplay: 1
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
 --- !u!1 &734276730 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1572273933890464, guid: 505b4449749ed0042b1b9133174ad4cf,
@@ -1336,10 +1217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 993085808}
-  streakText: {fileID: 1288464870}
+  streakText: {fileID: 41461692}
   scoreChangePrefab: {fileID: 1564879474840736, guid: c9385c9386198be4a8f6d21f530b1c89,
-    type: 2}
-  scoreMultiplierPrefab: {fileID: 1168581322467968, guid: 90bba3c5bbf436f44bb715471888059c,
     type: 2}
   streakColors:
   - {r: 0.40560123, g: 0.40560123, b: 0.8897059, a: 1}
