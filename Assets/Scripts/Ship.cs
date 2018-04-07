@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class Ship : MonoBehaviour {
 
     Rigidbody rb;
+    AudioSource audioSource;
 
     [HideInInspector]
     public Quaternion rotation;
@@ -13,11 +15,10 @@ public class Ship : MonoBehaviour {
     float speed = 0f;
     float rollSpeed = 0f;
     float pitchSpeed = 0f;
-    float maxSpeed = 0f;
 
+    const float shipSpeed = 160f;
     const float mouseSpeed = 50.0f;
-    const float maxSpeedBoosted = 320f;
-    const float maxSpeedNormal = 160f;
+    // const float maxSpeedBoosted = 320f;
     //float turningRollAmount = 10f;
     
     const float rollSpeedAccel = 140f;
@@ -29,7 +30,10 @@ public class Ship : MonoBehaviour {
 
     const float maxSpeedLimiter = .25f;
 
-    float rollingEffectFromTurn = 0f;
+    const float boostSpeed = 160f;
+    const float boostWarmupTime = 1;
+    const float boostWarmdownTime = 1;
+    
     const float rollingEffectFromTurnAccel = 20f;
     const float rollingEffectFromTurnDeaccel = 60f;
     const float rollingEffectFromTurnMax = 50.0f;
@@ -40,10 +44,13 @@ public class Ship : MonoBehaviour {
     float mouseY;
     float vertical;
     float horizontal;
+    float rollingEffectFromTurn = 0f;
+    float boostEffect = 0;
 
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
 
         rotation = transform.rotation;
         Cursor.lockState = CursorLockMode.Locked;
@@ -59,11 +66,25 @@ public class Ship : MonoBehaviour {
         vertical = Input.GetAxis("Vertical");
 
         if (Input.GetButton("Fire1")) {
-            mouseX = 0;
-            mouseY = 0;
-            maxSpeed = maxSpeedBoosted;
+            boostEffect += Time.deltaTime / boostWarmupTime;
+            if (boostEffect > 1) {
+                boostEffect = 1;
+            }
+            audioSource.volume = 0.7f;
         } else {
-            maxSpeed = maxSpeedNormal;
+            boostEffect -= Time.deltaTime / boostWarmdownTime;
+            if (boostEffect < 0) {
+                boostEffect = 0;
+            }
+            audioSource.volume = 0.2f;
+        }
+
+        audioSource.volume = 0.2f + (boostEffect * 0.8f);
+
+        // can't turn while boost is active
+        if (boostEffect > 0) {
+            mouseX = mouseX * (1 - boostEffect);
+            mouseY = mouseY * (1 - boostEffect);
         }
 
         // Handle yaw acceleration
@@ -123,7 +144,7 @@ public class Ship : MonoBehaviour {
         transform.RotateAround(transform.position, transform.forward, -rollingEffectFromTurn); // roll caused by yaw (mouseX turning)
 
         float rollStrength = -Vector3.Dot(transform.up, Vector3.Cross(transform.forward, Vector3.up)); // used for slowing forward motion when turning
-        speed = maxSpeed * (1 - (Mathf.Abs(rollStrength) * maxSpeedLimiter));
+        speed = (shipSpeed + boostEffect * boostSpeed) * (1 - (Mathf.Abs(rollStrength) * maxSpeedLimiter));
 
         rb.velocity = transform.forward * speed; // forward movement
 
