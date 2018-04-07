@@ -477,7 +477,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1c3e05d6a67464390d80c392d9f6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fracturedPrefab: {fileID: 1384425878185402, guid: 440aad5ca5f81c24e87b4d2174ab5e9a,
+  donutFracturedPrefab: {fileID: 1384425878185402, guid: 440aad5ca5f81c24e87b4d2174ab5e9a,
     type: 2}
-  donutImpactPrefab: {fileID: 1728737136273480, guid: d635323c8889ee845966475cc3c50cff,
+  donutGlobPrefab: {fileID: 1248297263717226, guid: 3d5e0a9e1612c664ab6e5ee056d53157,
+    type: 2}
+  impactPrefab: {fileID: 1728737136273480, guid: d635323c8889ee845966475cc3c50cff,
     type: 2}

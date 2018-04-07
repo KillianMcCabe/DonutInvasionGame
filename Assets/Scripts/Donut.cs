@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Donut : MonoBehaviour {
 
-	public GameObject fracturedPrefab;
-	public GameObject donutImpactPrefab;
+	public GameObject donutFracturedPrefab;
+	public GameObject donutGlobPrefab;
 
 	Rigidbody rigidbody;
+	AudioSource audioSource;
+
+	bool isDestroyed = false;
 
 	// Use this for initialization
 	void Start () {
@@ -27,7 +30,7 @@ public class Donut : MonoBehaviour {
 	void OnTriggerExit(Collider other)
 	{
 		if (other.tag == "Player") {
-			Instantiate(fracturedPrefab, transform.position, transform.rotation);
+			Instantiate(donutFracturedPrefab, transform.position, transform.rotation);
 			Destroy(gameObject);
 			PlayerScoreTracker.instance.ScoreDonut();
 		}
@@ -40,10 +43,12 @@ public class Donut : MonoBehaviour {
 	/// <param name="other">The Collision data associated with this collision.</param>
 	void OnCollisionEnter(Collision other)
 	{
-		if (other.gameObject.tag == "Planet") {
-			Instantiate(fracturedPrefab, transform.position, transform.rotation);
-			GameObject go = Instantiate(donutImpactPrefab);
-			go.transform.LookAt(transform);
+		if (other.gameObject.tag == "Planet" && !isDestroyed) {
+			isDestroyed = true;
+
+			ContactPoint contact = other.contacts[0];
+			Instantiate(donutGlobPrefab, contact.point, Random.rotation);
+
 			Destroy(gameObject);
 			GameController.instance.DonutImpact();
 		}
