@@ -47,6 +47,8 @@ public class Ship : MonoBehaviour {
     float rollingEffectFromTurn = 0f;
     float boostEffect = 0;
 
+    bool active = true;
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
@@ -60,25 +62,31 @@ public class Ship : MonoBehaviour {
 	void FixedUpdate () {
 
         // Get inputs
-        mouseX = Input.GetAxis("Mouse X");
-        mouseY = Input.GetAxis("Mouse Y");
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
-
-        if (Input.GetButton("Fire1")) {
+        if (active) {            
+            mouseX = Input.GetAxis("Mouse X");
+            mouseY = Input.GetAxis("Mouse Y");
+            horizontal = Input.GetAxis("Horizontal");
+            vertical = Input.GetAxis("Vertical");
+        } else {
+            mouseX = 0;
+            mouseY = 0;
+            horizontal = 0;
+            vertical = 0;
+        }
+        
+        if (Input.GetButton("Fire1") && active) {
             boostEffect += Time.deltaTime / boostWarmupTime;
             if (boostEffect > 1) {
                 boostEffect = 1;
             }
-            audioSource.volume = 0.7f;
         } else {
             boostEffect -= Time.deltaTime / boostWarmdownTime;
             if (boostEffect < 0) {
                 boostEffect = 0;
             }
-            audioSource.volume = 0.2f;
         }
 
+        // set thruster sound volume
         audioSource.volume = 0.2f + (boostEffect * 0.8f);
 
         // can't turn while boost is active
@@ -157,5 +165,9 @@ public class Ship : MonoBehaviour {
         if (transform.position.magnitude > maxDistanceFromOrigin) {
             transform.position = Vector3.ClampMagnitude(transform.position, maxDistanceFromOrigin);
         }
+    }
+
+    void SetActive(bool b) {
+        active = b;
     }
 }

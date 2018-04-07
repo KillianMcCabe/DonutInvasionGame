@@ -712,7 +712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9441fdbdbcd6fe4b9610b049aaba7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 114431696850264764}
+  target: {fileID: 4327566890586586}
   planetCollidor: {fileID: 0}
 --- !u!114 &114883863270155598
 MonoBehaviour:

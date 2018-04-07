@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class GameController : MonoBehaviour {
 
 	public GameObject planet;
 	public GameObject ship;
+	public PlayerCamera playerCamera;
 	public Slider planetHealthSlider;
 	public GameObject gameOverPanel;
 
@@ -31,7 +33,6 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	// const float donutSpawnRate = 4.5f;
 	float timeSinceLastDonut = 0f;
 
 	Difficulty[] difficultys = {
@@ -51,6 +52,8 @@ public class GameController : MonoBehaviour {
 
 		planetHealth = maxPlanetHealth;
 		UpdatePlanetHealthSlider();
+
+		gameOverPanel.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -81,12 +84,28 @@ public class GameController : MonoBehaviour {
 		}
 		
 
-		if (planetHealth <= 0)
-			gameOverPanel.SetActive(true);
+		if (planetHealth <= 0) {
+			GameOver();
+		}
+	}
+
+	private void GameOver() {
+		gameOverPanel.SetActive(true);
+		ship.SetActive(false);
+
+		// make player camera look at planet
+		playerCamera.lookingAtPlanet = true;
+
+		StartCoroutine(RestartAfterXSeconds());
 	}
 
 	public void DonutImpact() {
 		planetHealth -= donutImpactDamage;
 		UpdatePlanetHealthSlider();
+	}
+
+	IEnumerator RestartAfterXSeconds() {
+        yield return new WaitForSeconds(6);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }
