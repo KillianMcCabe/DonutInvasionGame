@@ -12,6 +12,8 @@ ModelImporter:
     400002: Cube
     400004: //RootNode
     2100000: unnamed
+    2100002: Ship__ShipTexture
+    2100004: ShipThrusters__ShipTexture
     2300000: Cone
     2300002: Cube
     2300004: //RootNode

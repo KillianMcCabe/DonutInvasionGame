@@ -11,6 +11,7 @@ public class Ship : MonoBehaviour {
     public Quaternion rotation;
 
     public GameObject warningPanel;
+    public Material thrusterMaterial;
 
     float speed = 0f;
     float rollSpeed = 0f;
@@ -88,6 +89,10 @@ public class Ship : MonoBehaviour {
 
         // set thruster sound volume
         audioSource.volume = 0.2f + (boostEffect * 0.8f);
+
+        Color thrusterColor = new Color(0, boostEffect, 0, boostEffect);
+        thrusterMaterial.SetColor("_EmissionColor", thrusterColor);
+        thrusterMaterial.SetColor("_Color", thrusterColor);
 
         // can't turn while boost is active
         if (boostEffect > 0) {

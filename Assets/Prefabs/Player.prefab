@@ -446,7 +446,8 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 464e98842dd0b1945985d9eacd97dc60, type: 3}
+  - {fileID: 2100002, guid: 464e98842dd0b1945985d9eacd97dc60, type: 3}
+  - {fileID: 2100000, guid: 890ea93a6b75c2749a510124cfabbd11, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -701,6 +702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 0, y: 0, z: 0, w: 0}
   warningPanel: {fileID: 0}
+  thrusterMaterial: {fileID: 2100000, guid: 890ea93a6b75c2749a510124cfabbd11, type: 2}
 --- !u!114 &114583406265260660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -709,11 +711,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1365591462390152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9441fdbdbcd6fe4b9610b049aaba7cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 6341068d0573e9848a89a61d0cfeba6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4327566890586586}
-  planetCollidor: {fileID: 0}
+  ship: {fileID: 114431696850264764}
+  planet: {fileID: 0}
+  lookingAtPlanet: 0
 --- !u!114 &114883863270155598
 MonoBehaviour:
   m_ObjectHideFlags: 1
