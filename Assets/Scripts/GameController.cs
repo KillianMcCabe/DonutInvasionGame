@@ -36,9 +36,10 @@ public class GameController : MonoBehaviour {
 	float timeSinceLastDonut = 0f;
 
 	Difficulty[] difficultys = {
-		new Difficulty(5f, 30f),
-		new Difficulty(4f, 60f),
-		new Difficulty(3f, 90f)
+		new Difficulty(4.2f, 30f),
+		new Difficulty(3.6f, 60f),
+		new Difficulty(3.0f, 90f),
+		new Difficulty(2.6f, 120f)
 	};
 	int currentDifficultyIndex = 0;
 

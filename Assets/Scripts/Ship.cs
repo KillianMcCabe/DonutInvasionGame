@@ -19,8 +19,6 @@ public class Ship : MonoBehaviour {
 
     const float shipSpeed = 160f;
     const float mouseSpeed = 50.0f;
-    // const float maxSpeedBoosted = 320f;
-    //float turningRollAmount = 10f;
     
     const float rollSpeedAccel = 140f;
     const float rollSpeedDeaccel = 200f;
@@ -41,6 +39,9 @@ public class Ship : MonoBehaviour {
 
     const float maxDistanceFromOrigin = 1000.0f;
 
+    float fireRate = .6f;
+    float timeSinceFired = 10;
+
     float mouseX;
     float mouseY;
     float vertical;
@@ -50,10 +51,14 @@ public class Ship : MonoBehaviour {
 
     bool active = true;
 
+    GameObject projectilePrefab;
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+
+        projectilePrefab = Resources.Load("Prefabs/Projectile") as GameObject;
 
         rotation = transform.rotation;
         Cursor.lockState = CursorLockMode.Locked;
@@ -62,12 +67,30 @@ public class Ship : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-        // Get inputs
-        if (active) {            
+        // Get inputs        
+        if (active) {
             mouseX = Input.GetAxis("Mouse X");
             mouseY = Input.GetAxis("Mouse Y");
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
+
+            if (Input.GetButton("Fire1") && timeSinceFired > fireRate) {
+                Instantiate(projectilePrefab, transform.position + transform.forward * 5, transform.rotation);
+                timeSinceFired = 0;
+            }
+            timeSinceFired += Time.deltaTime;
+
+            if (Input.GetButton("Fire2")) {
+                boostEffect += Time.deltaTime / boostWarmupTime;
+                if (boostEffect > 1) {
+                    boostEffect = 1;
+                }
+            } else {
+                boostEffect -= Time.deltaTime / boostWarmdownTime;
+                if (boostEffect < 0) {
+                    boostEffect = 0;
+                }
+            }
         } else {
             mouseX = 0;
             mouseY = 0;
@@ -75,18 +98,6 @@ public class Ship : MonoBehaviour {
             vertical = 0;
         }
         
-        if (Input.GetButton("Fire1") && active) {
-            boostEffect += Time.deltaTime / boostWarmupTime;
-            if (boostEffect > 1) {
-                boostEffect = 1;
-            }
-        } else {
-            boostEffect -= Time.deltaTime / boostWarmdownTime;
-            if (boostEffect < 0) {
-                boostEffect = 0;
-            }
-        }
-
         // set thruster sound volume
         audioSource.volume = 0.2f + (boostEffect * 0.8f);
 
