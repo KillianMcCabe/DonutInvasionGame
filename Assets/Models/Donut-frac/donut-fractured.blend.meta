@@ -107,6 +107,34 @@ ModelImporter:
     100198: Torus_cell_098
     100200: Torus_cell_099
     100202: Torus_cell_100
+    100204: Donut
+    100206: Donut_cell
+    100208: Donut_cell_001
+    100210: Donut_cell_002
+    100212: Donut_cell_003
+    100214: Donut_cell_004
+    100216: Donut_cell_005
+    100218: Donut_cell_006
+    100220: Donut_cell_007
+    100222: Donut_cell_008
+    100224: Donut_cell_009
+    100226: Donut_cell_010
+    100228: Donut_cell_011
+    100230: Donut_cell_012
+    100232: Donut_cell_013
+    100234: Donut_cell_014
+    100236: Donut_cell_015
+    100238: Donut_cell_016
+    100240: Donut_cell_017
+    100242: Donut_cell_018
+    100244: Donut_cell_019
+    100246: Donut_cell_020
+    100248: Donut_cell_021
+    100250: Donut_cell_022
+    100252: Donut_cell_023
+    100254: Donut_cell_024
+    100256: Donut_cell_025
+    100258: TextureAtlas_mergedObject
     400000: //RootNode
     400002: Torus_cell
     400004: Torus_cell_001
@@ -209,7 +237,39 @@ ModelImporter:
     400198: Torus_cell_098
     400200: Torus_cell_099
     400202: Torus_cell_100
+    400204: Donut
+    400206: Donut_cell
+    400208: Donut_cell_001
+    400210: Donut_cell_002
+    400212: Donut_cell_003
+    400214: Donut_cell_004
+    400216: Donut_cell_005
+    400218: Donut_cell_006
+    400220: Donut_cell_007
+    400222: Donut_cell_008
+    400224: Donut_cell_009
+    400226: Donut_cell_010
+    400228: Donut_cell_011
+    400230: Donut_cell_012
+    400232: Donut_cell_013
+    400234: Donut_cell_014
+    400236: Donut_cell_015
+    400238: Donut_cell_016
+    400240: Donut_cell_017
+    400242: Donut_cell_018
+    400244: Donut_cell_019
+    400246: Donut_cell_020
+    400248: Donut_cell_021
+    400250: Donut_cell_022
+    400252: Donut_cell_023
+    400254: Donut_cell_024
+    400256: Donut_cell_025
+    400258: TextureAtlas_mergedObject
     2100000: unnamed
+    2100002: Donut_001__TextureAtlas
+    2100004: Donut_001__Donut_dif_png
+    2100006: DonutFractured__TextureAtlas
+    2100008: DonutFractured__Donut_dif
     2300000: //RootNode
     2300002: Torus_cell
     2300004: Torus_cell_001
@@ -312,6 +372,34 @@ ModelImporter:
     2300198: Torus_cell_098
     2300200: Torus_cell_099
     2300202: Torus_cell_100
+    2300204: Donut
+    2300206: Donut_cell
+    2300208: Donut_cell_001
+    2300210: Donut_cell_002
+    2300212: Donut_cell_003
+    2300214: Donut_cell_004
+    2300216: Donut_cell_005
+    2300218: Donut_cell_006
+    2300220: Donut_cell_007
+    2300222: Donut_cell_008
+    2300224: Donut_cell_009
+    2300226: Donut_cell_010
+    2300228: Donut_cell_011
+    2300230: Donut_cell_012
+    2300232: Donut_cell_013
+    2300234: Donut_cell_014
+    2300236: Donut_cell_015
+    2300238: Donut_cell_016
+    2300240: Donut_cell_017
+    2300242: Donut_cell_018
+    2300244: Donut_cell_019
+    2300246: Donut_cell_020
+    2300248: Donut_cell_021
+    2300250: Donut_cell_022
+    2300252: Donut_cell_023
+    2300254: Donut_cell_024
+    2300256: Donut_cell_025
+    2300258: TextureAtlas_mergedObject
     3300000: //RootNode
     3300002: Torus_cell
     3300004: Torus_cell_001
@@ -414,6 +502,34 @@ ModelImporter:
     3300198: Torus_cell_098
     3300200: Torus_cell_099
     3300202: Torus_cell_100
+    3300204: Donut
+    3300206: Donut_cell
+    3300208: Donut_cell_001
+    3300210: Donut_cell_002
+    3300212: Donut_cell_003
+    3300214: Donut_cell_004
+    3300216: Donut_cell_005
+    3300218: Donut_cell_006
+    3300220: Donut_cell_007
+    3300222: Donut_cell_008
+    3300224: Donut_cell_009
+    3300226: Donut_cell_010
+    3300228: Donut_cell_011
+    3300230: Donut_cell_012
+    3300232: Donut_cell_013
+    3300234: Donut_cell_014
+    3300236: Donut_cell_015
+    3300238: Donut_cell_016
+    3300240: Donut_cell_017
+    3300242: Donut_cell_018
+    3300244: Donut_cell_019
+    3300246: Donut_cell_020
+    3300248: Donut_cell_021
+    3300250: Donut_cell_022
+    3300252: Donut_cell_023
+    3300254: Donut_cell_024
+    3300256: Donut_cell_025
+    3300258: TextureAtlas_mergedObject
     4300000: Torus
     4300002: Torus_cell_100
     4300004: Torus_cell_099
@@ -516,6 +632,34 @@ ModelImporter:
     4300198: Torus_cell_002
     4300200: Torus_cell_001
     4300202: Torus_cell
+    4300204: Donut_cell_025
+    4300206: Donut_cell_024
+    4300208: Donut_cell_023
+    4300210: Donut_cell_022
+    4300212: Donut_cell_021
+    4300214: Donut_cell_020
+    4300216: Donut_cell_019
+    4300218: Donut_cell_018
+    4300220: Donut_cell_017
+    4300222: Donut_cell_016
+    4300224: Donut_cell_015
+    4300226: Donut_cell_014
+    4300228: Donut_cell_013
+    4300230: Donut_cell_012
+    4300232: Donut_cell_011
+    4300234: Donut_cell_010
+    4300236: Donut_cell_009
+    4300238: Donut_cell_008
+    4300240: Donut_cell_007
+    4300242: Donut_cell_006
+    4300244: Donut_cell_005
+    4300246: Donut_cell_004
+    4300248: Donut_cell_003
+    4300250: Donut_cell_002
+    4300252: Donut_cell_001
+    4300254: Donut_cell
+    4300256: Donut
+    4300258: TextureAtlas_mergedObject
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}

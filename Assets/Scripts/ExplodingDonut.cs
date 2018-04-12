@@ -19,8 +19,25 @@ public class ExplodingDonut : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (lifetime > timeTilDeath) {
-			Destroy(gameObject);
+			StartCoroutine(Die());
 		}
 		lifetime += Time.deltaTime;
+	}
+
+	IEnumerator Die() {
+		float t = 0;
+		float fadeTime = 1;
+		Vector3 startingScale = rigidbodies[0].transform.localScale;
+		Vector3 newScale = new Vector3(0, 0, 0);
+		while (t < fadeTime)
+		{
+			var s = Vector3.Lerp(startingScale, newScale, (t / fadeTime));
+			foreach (Rigidbody rb in rigidbodies) {
+				rb.transform.localScale = s;
+			}
+			t += Time.deltaTime;
+			yield return null;
+		}
+		Destroy(gameObject);
 	}
 }
