@@ -8,17 +8,27 @@ ModelImporter:
     100000: Cube
     100002: //RootNode
     100004: Sphere
+    100006: Roundcube
     400000: Cube
     400002: //RootNode
     400004: Sphere
+    400006: Roundcube
     2100000: Skydome__skydome
     2100002: envbox__envbox
+    2100004: None__Sun
+    2100006: Cloud
+    2100008: Sky
+    2100010: Sun__Sun
+    2100012: Cloud__lightmap
     2300000: Cube
     2300002: Sphere
+    2300004: Roundcube
     3300000: Cube
     3300002: Sphere
+    3300004: Roundcube
     4300000: Sphere
     4300002: Cube
+    4300004: Roundcube
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
