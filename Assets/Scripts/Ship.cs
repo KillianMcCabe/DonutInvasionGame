@@ -62,6 +62,14 @@ public class Ship : MonoBehaviour {
 
         rotation = transform.rotation;
         Cursor.lockState = CursorLockMode.Locked;
+
+        StartCoroutine(DisabledForXSeconds(.6f));
+    }
+
+    IEnumerator DisabledForXSeconds(float seconds) {
+        active = false;
+        yield return new WaitForSeconds(seconds);
+        active = true;
     }
 	
 	// Update is called once per frame
@@ -69,8 +77,11 @@ public class Ship : MonoBehaviour {
 
         // Get inputs        
         if (active) {
-            mouseX = Input.GetAxis("Mouse X");
-            mouseY = Input.GetAxis("Mouse Y");
+            Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+            mouseInput = Vector2.ClampMagnitude(mouseInput, 4); //TODO: Clamp to 1 and then test with controller
+            mouseX = mouseInput.x;
+            mouseY = mouseInput.y;
+
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
 

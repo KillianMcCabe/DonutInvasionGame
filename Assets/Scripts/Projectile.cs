@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour {
 	float lifetime = 0;
 	Rigidbody rigidbody;
 
+	public GameObject impactPrefab;
+
 	// Use this for initialization
 	void Start () {
 		rigidbody = GetComponent<Rigidbody>();
@@ -27,21 +29,17 @@ public class Projectile : MonoBehaviour {
 		// maybe spherecast between positions?
 	}
 
-	/// <summary>
-	/// OnTriggerEnter is called when the Collider other enters the trigger.
-	/// </summary>
-	/// <param name="other">The other Collider involved in this collision.</param>
-	void OnTriggerEnter(Collider other)
+	void OnCollisionEnter(Collision other)
 	{
 		if (lifetime <= .1) {
 			return;
 		}
-		
-		if (other.name == "PlanetGlob") { // TODO: this
+		// if (other.name == "PlanetGlob") { // TODO: this
 			
-		}
-		print("hit " + other.name);
-			Destroy(gameObject);
-		
+		// }
+		print("hit " + other.gameObject.name);
+
+		Instantiate(impactPrefab, other.contacts[0].point, Quaternion.identity);
+		Destroy(gameObject);
 	}
 }

@@ -8,7 +8,7 @@ public class PlayerCamera : MonoBehaviour {
     
     SphereCollider planetCollidor;
 
-    const float distanceKeptFromTarget = 40;
+    const float distanceKeptFromTarget = 32;
     const float moveAwayFromPlanetSpeed = 5;
 
     [HideInInspector]
@@ -23,7 +23,7 @@ public class PlayerCamera : MonoBehaviour {
 	void LateUpdate () {
         if (!lookingAtPlanet) {
             Vector3 towardsTarget = ship.transform.position - transform.position;
-            transform.position = ship.transform.position - towardsTarget.normalized * distanceKeptFromTarget; // keep a specific distance from target
+            transform.position = ship.transform.position - (towardsTarget.normalized) * distanceKeptFromTarget; // keep a specific distance from target
 
             transform.rotation = ship.rotation;
 
@@ -32,7 +32,6 @@ public class PlayerCamera : MonoBehaviour {
                 transform.position = transform.position.normalized * (planetCollidor.bounds.size.x / 2);
             }
         } else {
-            // transform.LookAt(planet.transform);
             Vector3 awayFromPlanet = transform.position - planet.transform.position;
             awayFromPlanet.Normalize();
 
